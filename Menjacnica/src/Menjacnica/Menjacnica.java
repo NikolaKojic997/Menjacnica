@@ -1,8 +1,11 @@
 package Menjacnica;
 
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-public class Menjacnica {
+import Interfejs.MenjacnicaInterfejs;
+
+public class Menjacnica implements MenjacnicaInterfejs  {
 	
 	private String ime;
 	private String adresa;
@@ -64,6 +67,21 @@ public class Menjacnica {
 	@Override
 	public String toString() {
 		return "Menjacnica [ime=" + ime + ", adresa=" + adresa + ", valute=" + valute + "]";
+	}
+	@Override
+	public void dodajKurs(String skraceniNaziv, GregorianCalendar datum, char znakKursa, double vrednost) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void obrusiKurs(String skraceniNaziv, GregorianCalendar datum, char znakKursa) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public double vratiKurs(String skraceniNaziv, GregorianCalendar datum, char znakKursa) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	
