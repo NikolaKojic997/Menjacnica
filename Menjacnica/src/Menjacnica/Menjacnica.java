@@ -71,12 +71,13 @@ public class Menjacnica implements MenjacnicaInterfejs  {
 	
 	@Override
 	public void obrusiKurs(String skraceniNaziv, GregorianCalendar datum) {
-		// TODO Auto-generated method stub
 		
-	}
+		}
+		
+	
 	@Override
-	public double vratiKurs(String skraceniNaziv, GregorianCalendar datum, char znakKursa) {
-		// TODO Auto-generated method stub
+	public double vratiKurs(String skraceniNaziv, GregorianCalendar datum) {
+		
 		return 0;
 	}
 	@Override
