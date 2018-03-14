@@ -76,14 +76,19 @@ public class Menjacnica implements MenjacnicaInterfejs  {
 		
 	
 	@Override
-	public double vratiKurs(String skraceniNaziv, GregorianCalendar datum) {
+	public Valuta vratiKurs(String skraceniNaziv, GregorianCalendar datum) {
 		
-		return 0;
+		return null;
 	}
 	@Override
 	public void dodajKurs(String naziv, String skraceniNaziv, GregorianCalendar datum, double prodajniKurs,
 			double kupovniKurs) {
-		// TODO Auto-generated method stub
+		Valuta valuta = new Valuta();
+		valuta.setNaziv(naziv);
+		valuta.setSkraceniNaziv(skraceniNaziv);
+		valuta.setProdajniKurs(prodajniKurs);
+		valuta.setKupovniKurs(kupovniKurs);
+		valute.addFirst(valuta);
 		
 	}
 	
