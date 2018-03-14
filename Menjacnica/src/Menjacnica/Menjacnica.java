@@ -71,19 +71,45 @@ public class Menjacnica implements MenjacnicaInterfejs  {
 	
 	@Override
 	public void obrusiKurs(String skraceniNaziv, GregorianCalendar datum) {
-		
+		for (int i = 0; i<valute.size(); i++) {
+			Valuta v = valute.get(i);
+			int Godina = v.getDatum().YEAR;
+			int Mesec = v.getDatum().MONTH;
+			int Dan = v.getDatum().DAY_OF_MONTH;
+			
+			if (datum.YEAR == Godina && datum.MONTH == Mesec && datum.DAY_OF_MONTH == Dan && v.getSkraceniNaziv().equals(skraceniNaziv)) {
+				valute.remove(i);
+			}
+		}
+
 		}
 		
 	
 	@Override
-	public double vratiKurs(String skraceniNaziv, GregorianCalendar datum) {
-		
-		return 0;
+	public Valuta vratiKurs(String skraceniNaziv, GregorianCalendar datum) {
+		for (int i = 0; i<valute.size(); i++) {
+			Valuta v = valute.get(i);
+			int Godina = v.getDatum().YEAR;
+			int Mesec = v.getDatum().MONTH;
+			int Dan = v.getDatum().DAY_OF_MONTH;
+			if (v.getSkraceniNaziv().equals(skraceniNaziv) && datum.YEAR == Godina && datum.MONTH == Mesec && datum.DAY_OF_MONTH == Dan) {
+				return v;
+			}
+		}
+
+		return null;
 	}
 	@Override
 	public void dodajKurs(String naziv, String skraceniNaziv, GregorianCalendar datum, double prodajniKurs,
 			double kupovniKurs) {
-		// TODO Auto-generated method stub
+		Valuta v = new Valuta();
+		v.setNaziv(naziv);
+		v.setSkraceniNaziv(skraceniNaziv);
+		v.setDatum(datum);
+		v.setProdajniKurs(prodajniKurs);
+		v.setKupovniKurs(kupovniKurs);
+		
+		valute.add(v);
 		
 	}
 	
