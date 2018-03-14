@@ -8,42 +8,60 @@ public class Valuta {
 	private String skraceniNaziv;
 	private GregorianCalendar datum;
 	private double prodajniKurs;
-	private double srednjiKurs;
 	private double kupovniKurs;
+	private double srednjiKurs = (prodajniKurs + kupovniKurs)/2;
+	
 	public String getNaziv() {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if (naziv == null || naziv.equals(""))
+			throw new RuntimeException("Nije moguce uneti null ili prazan string za ime valute");
 		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if (skraceniNaziv.length() != 3)
+			throw new RuntimeException("Skraceni naziv za valutu mora da ima 3 karaktera!");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	public GregorianCalendar getDatum() {
 		return datum;
 	}
 	public void setDatum(GregorianCalendar datum) {
+		int godina = datum.YEAR;
+		int mesec = datum.MONTH;
+		int dan = datum.DAY_OF_MONTH;
+		
+		if (godina != new GregorianCalendar().YEAR || mesec != new GregorianCalendar().MONTH || dan != new GregorianCalendar().DAY_OF_MONTH) {
+			throw new RuntimeException("Datum valute je moguce dodati samo na danasnji dan!");
+		}
+		
 		this.datum = datum;
 	}
 	public double getProdajniKurs() {
 		return prodajniKurs;
 	}
 	public void setProdajniKurs(double prodajniKurs) {
+		if (prodajniKurs < 0 || prodajniKurs<this.kupovniKurs) {
+			throw new RuntimeException("Nije moguce uneti prodajni kurs manji od nule ili manji od kupovnog kursa!");
+		}
 		this.prodajniKurs = prodajniKurs;
 	}
 	public double getSrednjiKurs() {
 		return srednjiKurs;
 	}
-	public void setSrednjiKurs(double srednjiKurs) {
-		this.srednjiKurs = srednjiKurs;
-	}
+	// set metoda za srednji kurs nije potrebna jer je on aritmeticka sredina prodajnog i kupovnog!
+	
 	public double getKupovniKurs() {
 		return kupovniKurs;
 	}
 	public void setKupovniKurs(double kupovniKurs) {
+		if (kupovniKurs <0 || kupovniKurs >prodajniKurs) {
+			throw new RuntimeException("Nije moguce uneti kupovni kurs koji je manji od nule ili koji je veci od prodajnog kursa!");
+		}
 		this.kupovniKurs = kupovniKurs;
 	}
 	@Override

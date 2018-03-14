@@ -11,18 +11,25 @@ public class Menjacnica {
 		return ime;
 	}
 	public void setIme(String ime) {
+		if (ime == null || ime.equals(""))
+			throw new RuntimeException("Nije moguce uneti null ili prazan string za ime menjacnice!");
 		this.ime = ime;
 	}
 	public String getAdresa() {
+		
 		return adresa;
 	}
 	public void setAdresa(String adresa) {
+		if (adresa == null || adresa.equals(""))
+		throw new RuntimeException("Nije moguce uneti null ili prazan string za adresu menjacnice!");
 		this.adresa = adresa;
 	}
 	public LinkedList<Valuta> getValute() {
 		return valute;
 	}
 	public void setValute(LinkedList<Valuta> valute) {
+		if (valute == null)
+			throw new RuntimeException("Nije moguce uneti nuull vrednost za listu valute!");
 		this.valute = valute;
 	}
 	@Override
