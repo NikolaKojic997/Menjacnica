@@ -4,8 +4,8 @@ import java.util.GregorianCalendar;
 
 public interface MenjacnicaInterfejs {
 	
-	public void dodajKurs(String skraceniNaziv,GregorianCalendar datum,  char znakKursa, double vrednost); //Skraceni naziv se odnosi na valutu
-	public void obrusiKurs(String skraceniNaziv, GregorianCalendar datum, char znakKursa); // Znak kursa - K (kupovni), P(prodajni), S(srednji)
+	public void dodajKurs(String naziv,String skraceniNaziv,GregorianCalendar datum,  double prodajniKurs, double kupovniKurs); 
+	public void obrusiKurs(String skraceniNaziv, GregorianCalendar datum); // Znak kursa - K (kupovni), P(prodajni), S(srednji)
 	public double vratiKurs(String skraceniNaziv, GregorianCalendar datum, char znakKursa);
 	
 }

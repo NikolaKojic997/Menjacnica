@@ -68,13 +68,9 @@ public class Menjacnica implements MenjacnicaInterfejs  {
 	public String toString() {
 		return "Menjacnica [ime=" + ime + ", adresa=" + adresa + ", valute=" + valute + "]";
 	}
+	
 	@Override
-	public void dodajKurs(String skraceniNaziv, GregorianCalendar datum, char znakKursa, double vrednost) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void obrusiKurs(String skraceniNaziv, GregorianCalendar datum, char znakKursa) {
+	public void obrusiKurs(String skraceniNaziv, GregorianCalendar datum) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -82,6 +78,12 @@ public class Menjacnica implements MenjacnicaInterfejs  {
 	public double vratiKurs(String skraceniNaziv, GregorianCalendar datum, char znakKursa) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public void dodajKurs(String naziv, String skraceniNaziv, GregorianCalendar datum, double prodajniKurs,
+			double kupovniKurs) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
